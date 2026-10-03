@@ -1,0 +1,12 @@
+fancy-bites/
+├── index.html
+├── style.css
+├── script.js
+└── assets/
+    ├── fancy-bites-bakery.png
+    └── founders/
+        ├── kyagaba-enoch.jpg
+        ├── lauben-steve.jpg
+        ├── atuhaire-mariat.jpg
+        ├── kakuru-enos.jpg
+        └── atukunda-madinah.jpg
