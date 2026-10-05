@@ -14,7 +14,138 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    :root{
+  --navy:#062653; --navy2:#0a356d; --gold:#e7a900; --gold2:#c48700; --cream:#fff8e9;
+  --white:#fff; --ink:#182235; --muted:#647084; --line:#e9e5dc;
+  --shadow:0 20px 55px rgba(4,25,55,.12); --radius:24px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;color:var(--ink);background:#fff;line-height:1.65}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+
+/* HEADER */
+.site-header{position:sticky;top:0;z-index:20;height:76px;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 6vw}
+.brand{display:flex;align-items:center;gap:12px;color:var(--navy);line-height:1}
+.brand-logo{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.brand-text strong{font-size:18px;display:block;letter-spacing:1px}
+.brand-text{font-size:17px;font-weight:700}
+.brand-text small{display:block;font-size:8px;letter-spacing:2px;margin-top:4px;color:var(--gold)}
+.nav{display:flex;gap:26px;font-size:14px;font-weight:700;color:#24334b}
+.nav a:hover{color:var(--gold)}
+.menu-toggle{display:none;border:0;background:none;font-size:28px;color:var(--navy);cursor:pointer}
+
+/* HERO */
+.hero{min-height:calc(100vh - 76px);padding:7vw 6vw;display:grid;grid-template-columns:.95fr 1.05fr;gap:5vw;align-items:center;background:linear-gradient(135deg,#fffdf7 0%,#f9f2e2 100%)}
+.eyebrow{color:var(--gold);font-weight:800;letter-spacing:2px;font-size:12px;margin-bottom:12px}
+.hero h1{font-family:"Playfair Display";font-size:clamp(48px,6vw,82px);line-height:1.03;color:var(--navy);margin-bottom:22px}
+.hero h1 span{color:var(--gold2)}
+.hero-text{font-size:18px;color:var(--muted);max-width:610px}
+.hero-actions{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.btn{padding:14px 22px;border-radius:999px;font-weight:800;display:inline-block;transition:.25s}
+.btn-primary{background:var(--navy);color:#fff;box-shadow:0 10px 25px rgba(6,38,83,.2)}
+.btn-primary:hover{background:var(--navy2);transform:translateY(-2px)}
+.btn-outline{border:1.5px solid var(--navy);color:var(--navy)}
+.btn-outline:hover{background:var(--navy);color:#fff}
+.hero-card{position:relative}
+.hero-card img{width:100%;border-radius:28px;box-shadow:var(--shadow);border:6px solid #fff}
+.hero-badge{position:absolute;left:-22px;bottom:28px;background:#fff;padding:15px 20px;border-radius:16px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.hero-badge strong{color:var(--navy)} .hero-badge span{font-size:12px;color:var(--muted)}
+
+/* ABOUT */
+.about-intro{padding:100px 6vw;display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:center}
+.about-image img{width:100%;border-radius:var(--radius);box-shadow:var(--shadow)}
+.about-copy h2,.section-heading h2,.contact h2,.story h2{font-family:"Playfair Display";color:var(--navy);font-size:clamp(34px,4vw,55px);line-height:1.1;margin-bottom:18px}
+.about-copy p{color:var(--muted);margin-bottom:15px}
+.text-link{color:var(--navy);font-weight:800;display:inline-block;margin-top:10px}
+.text-link:hover{color:var(--gold2)}
+
+/* SECTIONS */
+.section{padding:105px 6vw}
+.products{background:#f8f7f3}
+.section-heading{text-align:center;max-width:700px;margin:0 auto 48px}
+.section-heading>p:last-child{color:var(--muted)}
+
+/* PRODUCTS */
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1200px;margin:auto}
+.product-card{background:#fff;padding:30px;border-radius:20px;border:1px solid var(--line);transition:.25s}
+.product-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--gold)}
+.product-icon{font-size:38px;margin-bottom:12px}
+.product-card h3{color:var(--navy);margin-bottom:6px}
+.product-card p{color:var(--muted);font-size:14px}
+.product-photo{width: 500px; height: 300px;}
+/* BANNER */
+.feature-banner{margin:0 6vw;padding:48px 55px;border-radius:28px;background:var(--navy);color:#fff;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.feature-banner h2{font-family:"Playfair Display";font-size:clamp(30px,4vw,50px);line-height:1.1}
+.feature-banner>p{color:#dfe8f5}
+
+/* FOUNDERS */
+.founders{background:#fff}
+.founder-grid{max-width:1180px;margin:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.founder-card{display:flex;gap:22px;padding:28px;border:1px solid var(--line);border-radius:24px;background:#fff;box-shadow:0 8px 30px rgba(0,0,0,.035);transition:.25s}
+.founder-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--gold)}
+.founder-photo{flex:0 0 200px;width:200px;height:200px;border-radius:50%;object-fit:cover;object-position:center top;border:5px solid #fff;box-shadow:0 0 0 3px var(--gold);background:linear-gradient(135deg,var(--navy),#184f91)}
+.founder-info h3{font-family:"Playfair Display";font-size:24px;color:var(--navy);margin-bottom:3px}
+.founder-info span{color:var(--gold2);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px}
+.founder-info p{color:var(--muted);font-size:14px;margin-top:10px}
+
+/* VALUES */
+.values{background:var(--cream)}
+.value-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.value-grid>div{background:#fff;padding:28px;border-radius:20px;border:1px solid var(--line);transition:.25s}
+.value-grid>div:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.value-grid b{color:var(--gold);font-size:13px}
+.value-grid h3{color:var(--navy);margin:12px 0 7px}
+.value-grid p{font-size:14px;color:var(--muted)}
+
+/* STORY */
+.story{padding:100px 6vw;background:linear-gradient(rgba(6,38,83,.94),rgba(6,38,83,.94)),url("assets/bakery-storefront.jpg") center/cover}
+.story-inner{max-width:900px;margin:auto;text-align:center;color:#fff}
+.story h2{color:#fff}
+.story-inner>p:last-child{color:#dfe8f5;font-size:17px}
+
+/* CONTACT */
+.contact{background:#f8f7f3}
+.contact-card{max-width:1150px;margin:auto;background:#fff;border-radius:28px;padding:50px;display:grid;grid-template-columns:1fr .7fr;gap:40px;box-shadow:var(--shadow);align-items:center}
+.contact h2{font-size:42px}
+.contact p:not(.eyebrow){color:var(--muted)}
+.contact-details{display:grid;gap:14px}
+.contact-details a{border:1px solid var(--line);padding:18px 22px;border-radius:16px;display:flex;justify-content:space-between;align-items:center;transition:.25s}
+.contact-details a:hover{border-color:var(--gold);background:#fffdf5}
+.contact-details strong{color:var(--navy)}
+.contact-details span{font-size:12px;color:var(--muted)}
+
+/* FOOTER */
+footer{background:#031a39;color:#d8e1ef;padding:38px 6vw;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px}
+.footer-brand{display:flex;align-items:center;gap:10px}
+.footer-logo{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+.footer-brand strong{display:block;color:#fff}
+.footer-brand small{display:block;font-size:8px;letter-spacing:2px;color:var(--gold);margin-top:4px}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav{display:none;position:absolute;top:76px;left:0;right:0;background:#fff;padding:20px 6vw;flex-direction:column;gap:16px;border-bottom:1px solid var(--line)}
+  .nav.open{display:flex}
+  .menu-toggle{display:block}
+  .hero,.about-intro,.feature-banner,.contact-card{grid-template-columns:1fr}
+  .hero{padding-top:60px}.hero-card{order:-1}.hero-badge{left:15px}
+  .product-grid{grid-template-columns:repeat(2,1fr)}
+  .founder-grid{grid-template-columns:1fr}
+  .value-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .site-header{padding:0 5vw}
+  .hero,.section,.about-intro{padding-left:5vw;padding-right:5vw}
+  .hero h1{font-size:48px}
+  .product-grid,.value-grid{grid-template-columns:1fr}
+  .feature-banner{margin:0 5vw;padding:35px 28px}
+  .founder-card{flex-direction:column;align-items:center;text-align:center}
+  .contact-card{padding:32px 24px}.contact h2{font-size:34px}
+  footer{padding:30px 5vw;text-align:center;justify-content:center}
+}
+  </style>
 </head>
 <body>
 
@@ -48,7 +179,7 @@
         </div>
       </div>
       <div class="hero-card">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIUtsdg_3ju8K_LjtDG7lxHMiSlP-QWpfA13FhdWhjFaReryJp9OU-EONw3YeLT05iqgSoIi12XGjcvyNSNeCegl80A29Ph482DZSVD_9wkV7SFCi7X_3THIysIwhVu1awDftEJP6jcFUAOk5RhH7ct3kvTnXnWrMFwWI6HsVuDVa_4JFi2rBccm9iEyAN/s1075/bakery1.jpg" alt="Fancy Bites bakery storefront and delivery van">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOur4-u7I5ko0yIV0igERGhmJu0j5QbNWDihkUPoJ9hLBf9pUG_0z3YEZYLl7nNDmWj0J5wBb8aIRjW7IMsE9w8NvzLfRlek3exiPuELFZk3-QTT8ETCKQ2PKhiTfTu1XVEk3Gl2acnupwP7Q1lI6BSe_YeNR-Gjuj5cH-TNIk0Zg4hh_HIuodyf8qB94/s1536/fancy-bites-bakery.png" alt="Fancy Bites bakery storefront and delivery van">
         <div class="hero-badge"><strong>Fresh Bakes</strong><span>Delivered with care</span></div>
       </div>
     </section>
@@ -56,12 +187,12 @@
     <!-- ABOUT -->
     <section class="about-intro" id="about">
       <div class="about-image">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGmrpJNJ0PxFSibjBD9gJE2UojbbQ_IUQAaKLUITpGcL0ZMMrw4lzxT1uBTjuq9OaQEaBd2CEFaqTUtbeyK93D-dWdE5ZQYll54jJ7U99fitYdDq4ZfY92dQrTlmaJDjckO9u7sK3sWZeoPKB0I2F2a0zsFV4mLgai5eOP1JbEuJlx0FgDe1Ms-yRGmwA2/s1920/about.jpg" alt="bakery">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEoYI0AEgy3ev2X7ff29IgWasuW22qgcw-B8U7hYLS5iI0MGJKL8l7-f_iwCpNHOsJdjPn3RkTPD9vwxrcqEnYY5BHQQYXRxBo3yXFtDYMNRNuGBRQZoSUpLakpOovSnZzpJCMML1EEZ_YxTw9hLUVQcopf0c-VWPo3i75s1pPEZxx-Hlu5ILg0e8xOyw/s568/bakery%20background.jpg" alt="fancy bites show-room">
       </div>
       <div class="about-copy">
         <p class="eyebrow">A LITTLE ABOUT US</p>
         <h2>We bake with purpose.</h2>
-        <p>Fancy Bites Enterprises Ltd is a Ugandan baking business built around a simple idea: make bakery products people can enjoy while keeping sugar minimized.</p>
+        <p>Fancy Bites Enterprises Ltd is a Ugandan baking company located in Nakivale, Isingiro District. We make baked products people can enjoy while keeping sugar minimized.</p>
         <p>From breads and cakes to pastries and cookies, we focus on good presentation, consistent quality, customer care and a fresh experience from our bakery to your table.</p>
         <a class="text-link" href="#values">Discover our story →</a>
       </div>
@@ -75,12 +206,12 @@
         <p>Explore some of the product categories that make our bakery special.</p>
       </div>
       <div class="product-grid">
-        <article class="product-card"><div class="product-icon">🍞</div><h3>Breads</h3><p>Freshly baked bread for everyday meals and special moments.</p></article>
-        <article class="product-card"><div class="product-icon">🧁</div><h3>Cakes</h3><p>Beautiful cakes for celebrations, milestones and sweet memories.</p></article>
-        <article class="product-card"><div class="product-icon">🥐</div><h3>Pastries</h3><p>Fresh pastries made for breakfast, breaks and sharing.</p></article>
-        <article class="product-card"><div class="product-icon">🍪</div><h3>Cookies</h3><p>Crunchy, tasty treats prepared with our minimized-sugar approach.</p></article>
-        <article class="product-card"><div class="product-icon">✨</div><h3>Custom Orders</h3><p>Talk to us about bakery orders prepared for your event or occasion.</p></article>
-        <article class="product-card"><div class="product-icon">🚚</div><h3>Delivery</h3><p>Fresh bakes can be prepared for delivery to make ordering easier.</p></article>
+        <article class="product-card"><div class="product-icon"><img class="product-photo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHHCGLUgyruJeJTWvAalwAeb_TLNBcr6ihmS2AlEnbkJ4ix8tOm5sv5vKiVH-i_ejARRjn1K0CIgBrVHg8hjwg_NeJWJuEYxhoHj9SBfaPvTes9rXlUrRaWEYhpjjbxfk7mivd5Gw6oPEnMKlvXS8EysYju6gYWBLge3T8-Q-RsS3vHPrbR1puObUwGrw/s1200/bread.jpg" alt="fancy bites breads"></div><h3>Breads</h3><p>Freshly baked bread for everyday meals and special moments.</p></article>
+        <article class="product-card"><div class="product-icon"><img class="product-photo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicrffzcm3-afHsKa9BCltU3w035XKDq3M5K__BYKx8cKFOurhJr9zEWiJUNo17wr8pkGvpYqxo6WeQQ9FMpUm85EdSNuspdpl6mKq0tAPWrO4x3_nXJfqdtUyyszbL0YllO3ZJbBcUY33hl1piipEkdfkBLIFD6OdbLwjh7bIUPtnuMHj7eKlrAICWKM0/s640/birthday%20cake.jpg" alt="birthday Cakes"></div><h3>Cakes</h3><p>Beautiful cakes for celebrations, milestones and sweet memories.</p></article>
+        <article class="product-card"><div class="product-icon"><img class="product-photo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimBYhTOnmr5WtsY-_1KFTLSsjOsATFMaY07rNrjumcENxWkgiveIdlHb-dy0_i2RRse8mfGcG8ydA9htt8MzaGtG_jdIrRGW7eSYbri8AWkMWutv-oF7vEsZ4uCuzgbZe1UrKJEF_Zg_izVM77_xXW46U_6FEeZqq8gVJVyQ901-L_RqqtQHkaGWWsemA/s1500/chocolate%20desersts.jpg" alt="Chocolate Deserts"></div><h3>Chocolate Deserts</h3><p>Fresh Deserts are made for breakfast, breaks and sharing.</p></article>
+        <article class="product-card"><div class="product-icon"><img class="product-photo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXcsPoX2i-eCm8RIMyzOcRCwq96sVCr8MVvLZpq6PHWbeKSCGgL93FlgsSunT-1cs2Kr33RTHTllWRbQZTAjXrTNpAcad6nO9lglvFIQ5u3w0uJUwjDGuia-kFBp8KsUdUF_Ek4ZQ6xLOVVpmvnx-tZsG6d1nKhEVaz-cti1EfNerv43UJv7FCUClXbFo/s1200/dark%20chocolate%20cookies.webp" alt="Dark Dhocolate Cookies"></div><h3>Chocolate Cookies</h3><p>Crunchy, tasty treats prepared with our minimized-sugar approach.</p></article>
+        <article class="product-card"><div class="product-icon"><img class="product-photo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxfniT3CbI8tWxpukB54HoxMM7QzFAn8dA1_WpG3QdT-IQJcVlHpy9xwVlte2EkbShVRqkaXbsZU2joMWkZ6Cjd0Uo1jOTaCluBbKePN2tbedXMx0EobyqZGOg6kvUXakpDtYATiKQxKHlYP2CoROUXzgpEuSGbwtSFV-zF738Bvo2AP0RNehQz0CKApY/s1715/Gold%20croissants.jpg" alt="Gold croissants"></div><h3>Gold Croissants</h3><p>Fancy Bites Gold Croissants are flaky, buttery yeast-leavened that can be used in a wide variety of sweet and savory dishes.</p></article>
+        <article class="product-card"><div class="product-icon"><img class="product-photo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6CfKTJKxOMtgXMurv1qfw2MrYK02ZIkLVAVjeMp2xDLa5adZSX1fFUiEtbs9wE5Vg3fzWFKvL56MyrvRiQFEPNKGFLCpyC2cAt5qW9-FBtXeQjnQwkJY9P78VS6ZXiq66T5FQIwxdA2c4FH-rzdJf59AfdOjVKMFmg1TlncdqWyYusE_1T_PrlXfuUVQ/s975/Chocolate%20Ambasha.jpg" alt=""></div><h3>Chocolate Ambasha (Ethiopian Bread)</h3><p>(Ambasha or himbasha) is a delicious, spiced Ethiopian and Eritrean round flatbread used for daily meals, community gatherings, and festive celebrations.</p></article>
       </div>
     </section>
 
@@ -104,7 +235,7 @@
       <div class="founder-grid">
 
         <article class="founder-card">
-          <img class="founder-photo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjB5qhsmV1OuQPbokWBHvgVTnatxkDngNfoAWmKkdZCTdOngCGDwIxWA7rg0z2KITFYur7JCRjlg0KTYojSTlh0JPuwN4XzTDwVGO03rYQ_b0JJwVWxWr5r42IlIpFv99pdZnMgkwd8E1QWCN3vnEXJ_TCXR4r4UV9ydQdcFXc3J7neHklmx9FJwlDnO7t/s1764/founder.jpg" alt="Kyagaba Enoch">
+          <img class="founder-photo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjD7d7DARw45BzWatgQ99Oi9X41RnRt_7kQUlYGUbW0YMqo4rxLc7NzM0g62vEk-aSQ_JRsFB8nb5qBQ9TLSEXXG8EJjbfRq38wVJ5m1PtJqsl3lp68gLlUhIo56Cs2O7s7dDl4bpJFJcp_cJV6q2EvF_FdIIs1xtIpyYkT45sgyfI2QZaMypnaFMPBdik/s4096/enoc.jpg" alt="Kyagaba Enoch">
           <div class="founder-info">
             <h3>Kyagaba Enoch</h3>
             <span>Branding and Marketing Manager</span>
@@ -183,8 +314,8 @@
           <p>For orders, partnerships, custom bakery requests or more information, contact our team.</p>
         </div>
         <div class="contact-details">
-          <a href="tel:+256708292782"><strong>Call Now</strong><span>Call us</span></a>
-          <a href="https://wa.me/256760212470" target="_blank" rel="noopener"><strong>WhatsApp Now</strong><span>Chat with us</span></a>
+          <a href="tel:+256708292782"><strong>Call</strong><span>Talk to our Marketeer Now</span></a>
+          <a href="https://wa.me/256774583347" target="_blank" rel="noopener"><strong>WhatsApp Now</strong><span>Chat with our Marketeer Now</span></a>
         </div>
       </div>
     </section>
@@ -199,6 +330,47 @@
     <p>© <span id="year"></span> Fancy Bites Enterprises Ltd. All rights reserved.</p>
   </footer>
 
-  <script src="java.js"></script>
+  <script>
+    // Mobile menu toggle
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.nav');
+
+toggle?.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', open);
+  toggle.textContent = open ? '✕' : '☰';
+});
+
+// Close menu when a link is clicked
+document.querySelectorAll('.nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    toggle.textContent = '☰';
+    toggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
+// Auto year in footer
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Smooth scroll reveal
+const revealEls = document.querySelectorAll('.section, .founder-card, .product-card, .value-grid > div, .hero-copy, .hero-card');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+revealEls.forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(30px)';
+  el.style.transition = 'opacity .7s ease, transform .7s ease';
+  observer.observe(el);
+});
+  </script>
 </body>
 </html>
